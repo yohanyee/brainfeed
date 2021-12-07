@@ -50,6 +50,12 @@ conda create \
 python=3.7
 ```
 
+Install required packages:
+
+```bash
+pip install habanero praw
+```
+
 
 ### Setup
 
@@ -66,14 +72,18 @@ python=3.7
 
 ### Helpful links
 
-Reddit API: [https://www.reddit.com/dev/api](https://www.reddit.com/dev/api)
+- Reddit API: [https://www.reddit.com/dev/api](https://www.reddit.com/dev/api)
 
-Twitter API: [https://developer.twitter.com/en/docs/twitter-api](https://developer.twitter.com/en/docs/twitter-api)
+    - Python API for Reddit (PRAW): [https://praw.readthedocs.io/en/stable/index.html](https://praw.readthedocs.io/en/stable/index.html)
 
-Crossref API: [https://www.crossref.org/documentation/retrieve-metadata/](https://www.crossref.org/documentation/retrieve-metadata/)
+- Twitter API: [https://developer.twitter.com/en/docs/twitter-api](https://developer.twitter.com/en/docs/twitter-api)
 
-Altmetric API: [https://www.altmetric.com/products/altmetric-api/](https://www.altmetric.com/products/altmetric-api/)
+- Crossref API: [https://www.crossref.org/documentation/retrieve-metadata/](https://www.crossref.org/documentation/retrieve-metadata/)
 
-Firebase documentation: [https://firebase.google.com/docs](https://firebase.google.com/docs)
+    - Python API for Crossref (Habanero): [https://github.com/sckott/habanero](https://github.com/sckott/habanero)
 
-Firebase Admin SDK reference: [https://firebase.google.com/docs/reference/admin](https://firebase.google.com/docs/reference/admin)
+- Altmetric API: [https://www.altmetric.com/products/altmetric-api/](https://www.altmetric.com/products/altmetric-api/)
+
+- Firebase documentation: [https://firebase.google.com/docs](https://firebase.google.com/docs)
+
+    - SDK for Firebase (Firebase Admin SDK): [https://firebase.google.com/docs/reference/admin](https://firebase.google.com/docs/reference/admin)

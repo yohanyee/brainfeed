@@ -11,3 +11,6 @@ The increasing accessibility of scientific articles and surrounding public disco
 
 ## Project goals
 
+
+
+## Contributing

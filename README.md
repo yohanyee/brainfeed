@@ -65,8 +65,8 @@ Contributors of all backgrounds and experiences are welcome.
     You can install the required packages with this command, after activating the conda environment:
 
     ```bash
-    conda install spyder=5.1.5
     pip install habanero==1.0.0 praw==7.5.0
+    conda install spyder=5.1.5
     ```
 
 - A Reddit account
@@ -79,14 +79,14 @@ Contributors of all backgrounds and experiences are welcome.
 
 1. Clone this repository
 
-`git clone git@github.com:yohanyee/brainfeed.git`
+    `git clone git@github.com:yohanyee/brainfeed.git`
 
 2. Activate the conda environment
 
-`conda activate brainfeed`
+    `conda activate brainfeed`
 
-3. Copy the `praw.ini` file to your config directory (see [https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html](https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html)) and then fill in the information.
-Make sure to *not* have this publicly visible.
+3. Copy the `praw.ini_TEMPLATE_DO_NOT_ENTER_INFO_HERE` file to your config directory and rename it to `praw.ini` (see [https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html](https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html)).
+Then, fill in your authentication information. Make sure to *not* have this publicly visible.
 
 
 ### Helpful links

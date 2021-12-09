@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<h1 id="brainfeed">brainfeed</h1>
+<p>A tool for domain experts to find recent and relevant public discourse on topics they are familiar with</p>
+<h2 id="project-overview">Project overview</h2>
+<h3 id="motivation">Motivation</h3>
+<p>The increasing accessibility of scientific articles and surrounding public discourse is generally beneficial to society. A tradeoff to this increased public consumption of knowledge (in formats traditionally meant for domain experts) is the rise of misinformation. Articles in scientific journals often describe specific facts and precise outcomes under specific conditions, and their validity and generalizability are usually only understood by a few experts. On the other hand, social media such as Reddit and Twitter allow anyone (often anonymously) to post articles and comment about their contents, and it is in these forums that misunderstandings and wrong information are conveyed and spread. The wide audience of these forums, coupled with increased public interest on scientific topics (for example, in relation to the Covid-19 pandemic), has made it imperative that experts be able to find and engage such posts.</p>
+<p>This project, pitched for <a href="https://brainhackto.github.io/global-toronto-12-2021/">Brainhack Toronto 2021</a>, seeks to create a live feed of active and relevant public discussions on widely used social media forums. While the initial focus of this project is to detect discussions that revolve around brain imaging, the tools to be developed here should in principle be useful for other scientific fields.</p>
+<h3 id="implementation">Implementation</h3>
+<p>A tentative implementation of the project is as follows:</p>
+<h3 id="project-communications">Project communications</h3>
+<p>For Brainhack Toronto 2021, we'll communicate through a <a href="https://discord.gg/HC7fumm79B">Brainhack Toronto discord</a> channel.</p>
+<h2 id="project-goals">Project goals</h2>
+<p>For <strong>Brainhack 2021</strong>:</p>
+<ul>
+<li>[ ] Post and comment detection on Reddit via Reddit API</li>
+<li>[ ] Abstract and keyword detection based via Crossref API</li>
+<li>[ ] Classification of posts relevancy based on abstract keywords</li>
+<li>[ ] Post data to central repository (Firebase)</li>
+<li>[ ] Web application to view recent posts</li>
+</ul>
+<p>Future ideas:</p>
+<ul>
+<li>[ ] Extend to other forums (Twitter?)</li>
+<li>[ ] Sentiment detection of discussions</li>
+<li>[ ] Mobile applications to display discussion feed</li>
+<li>[ ] Analysis of scientific information spread across social networks</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>Contributors of all backgrounds and experiences are welcome.</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li><p>Python</p>
+<p>For simplicity and consistency, you can create a conda environment using the following command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">conda</span> create \
+--name brainfeed \
+python=3.7</code></pre></div>
+<p>After creating the environment, you can activate it by running <code>conda activate brainfeed</code>.</p></li>
+<li><p>Python packages</p>
+<p>You will need the following packages:</p>
+<ul>
+<li><code>habanero</code> (for Crossref)</li>
+<li><code>PRAW</code> (for Reddit)</li>
+<li><code>firebase-admin</code> (for Firebase / Firestore)</li>
+<li><code>spyder</code> (optional, a Python IDE)</li>
+</ul>
+<p>You can install the required packages with this command, after activating the conda environment:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pip</span> install habanero==1.0.0 praw==7.5.0 firebase-admin==5.1.0
+<span class="ex">conda</span> install spyder=5.1.5</code></pre></div></li>
+<li><p>A Reddit account</p>
+<p>Setup a Reddit account, and create a script app by clicking the &quot;Create app&quot; button <a href="https://old.reddit.com/prefs/apps/">here</a>. More details on this can be found at: <a href="https://github.com/reddit-archive/reddit/wiki/OAuth2" class="uri">https://github.com/reddit-archive/reddit/wiki/OAuth2</a></p></li>
+<li><p>A Firebase project</p>
+<p>Create here: <a href="https://console.firebase.google.com/" class="uri">https://console.firebase.google.com/</a></p></li>
+</ul>
+<h3 id="setup">Setup</h3>
+<ol style="list-style-type: decimal">
+<li><p>Clone this repository</p>
+<p><code>git clone git@github.com:yohanyee/brainfeed.git</code></p></li>
+<li><p>Activate the conda environment</p>
+<p><code>conda activate brainfeed</code></p></li>
+<li><p>Copy the <code>praw.ini_TEMPLATE_DO_NOT_ENTER_INFO_HERE</code> file to your config directory and rename it to <code>praw.ini</code> (see <a href="https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html" class="uri">https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html</a>). Then, fill in your Reddit authentication information, following Reddit guidelines for the user_agent field. Make sure to <em>not</em> have this publicly visible.</p></li>
+<li><p>Initialize the Firebase SDK (create a service account and download the private key)</p>
+<p>See <a href="https://firebase.google.com/docs/admin/setup/#initialize-sdk" class="uri">https://firebase.google.com/docs/admin/setup/#initialize-sdk</a></p></li>
+<li><p>Add an environment variable called <code>GOOGLE_APPLICATION_CREDENTIALS</code> pointing to the location of this private key (which should <em>not</em> be publicly visible)</p>
+<p><code>export GOOGLE_APPLICATION_CREDENTIALS=&quot;/home/user/.config/service-account-file.json&quot;</code></p></li>
+</ol>
+<h3 id="helpful-links">Helpful links</h3>
+<ul>
+<li><p>Reddit API: <a href="https://www.reddit.com/dev/api" class="uri">https://www.reddit.com/dev/api</a></p>
+<ul>
+<li>Python API for Reddit (PRAW): <a href="https://praw.readthedocs.io/en/stable/index.html" class="uri">https://praw.readthedocs.io/en/stable/index.html</a></li>
+</ul></li>
+<li><p>Twitter API: <a href="https://developer.twitter.com/en/docs/twitter-api" class="uri">https://developer.twitter.com/en/docs/twitter-api</a></p></li>
+<li><p>Crossref API: <a href="https://www.crossref.org/documentation/retrieve-metadata/" class="uri">https://www.crossref.org/documentation/retrieve-metadata/</a></p>
+<ul>
+<li>Python API for Crossref (Habanero): <a href="https://github.com/sckott/habanero" class="uri">https://github.com/sckott/habanero</a></li>
+</ul></li>
+<li><p>Altmetric API: <a href="https://www.altmetric.com/products/altmetric-api/" class="uri">https://www.altmetric.com/products/altmetric-api/</a></p></li>
+<li><p>Firebase documentation: <a href="https://firebase.google.com/docs" class="uri">https://firebase.google.com/docs</a></p>
+<ul>
+<li><p>Firebase Admin SDK reference: <a href="https://firebase.google.com/docs/reference/admin" class="uri">https://firebase.google.com/docs/reference/admin</a></p></li>
+<li><p>Firebase Admin Python SDK: <a href="https://github.com/firebase/firebase-admin-python" class="uri">https://github.com/firebase/firebase-admin-python</a></p></li>
+<li><p>Firestore quickstart guide: <a href="https://firebase.google.com/docs/firestore/quickstart#python" class="uri">https://firebase.google.com/docs/firestore/quickstart#python</a></p></li>
+</ul></li>
+</ul>
+</body>
+</html>

@@ -5,11 +5,17 @@ A tool for domain experts to find recent and relevant public discourse on topics
 
 ### Motivation
 
-The increasing accessibility of scientific articles and surrounding public discourse is generally beneficial to society. A tradeoff to this increased public consumption of knowledge (in formats traditionally meant for domain experts) is the rise of misinformation. Articles in scientific journals often describe specific facts and precise outcomes under specific conditions, and their validity and generalizability are usually only understood by a few experts. On the other hand, social media such as Reddit and Twitter allow anyone (often anonymously) to post articles and comment about their contents, and it is in these forums that wrong information is conveyed and spread. The wide audience of these forums, coupled with increased public interest on scientific topics (for example, in relation to the Covid-19 pandemic), has made it imperative that experts be able to find and engage such posts.
+The increasing accessibility of scientific articles and surrounding public discourse is generally beneficial to society.
+A tradeoff to this increased public consumption of knowledge (in formats traditionally meant for domain experts) is the rise of misinformation.
+Articles in scientific journals often describe specific facts and precise outcomes under specific conditions, and their validity and generalizability are usually only understood by a few experts.
+On the other hand, social media such as Reddit and Twitter allow anyone (often anonymously) to post articles and comment about their contents, and it is in these forums that misunderstandings and wrong information are conveyed and spread.
+The wide audience of these forums, coupled with increased public interest on scientific topics (for example, in relation to the Covid-19 pandemic), has made it imperative that experts be able to find and engage such posts.
 
 This project, pitched for [Brainhack Toronto 2021](https://brainhackto.github.io/global-toronto-12-2021/), seeks to create a live feed of active and relevant public discussions on widely used social media forums. While the initial focus of this project is to detect discussions that revolve around brain imaging, the tools to be developed here should in principle be useful for other scientific fields.
 
 ### Implementation
+
+A tentative implementation of the project is as follows:
 
 
 
@@ -54,18 +60,19 @@ Contributors of all backgrounds and experiences are welcome.
 
     After creating the environment, you can activate it by running `conda activate brainfeed`.
 
-- Packages
+- Python packages
 
     You will need the following packages:
 
     - `habanero` (for Crossref)
     - `PRAW` (for Reddit)
+    - `firebase-admin` (for Firebase / Firestore)
     - `spyder` (optional, a Python IDE)
 
     You can install the required packages with this command, after activating the conda environment:
 
     ```bash
-    pip install habanero==1.0.0 praw==7.5.0
+    pip install habanero==1.0.0 praw==7.5.0 firebase-admin==5.1.0
     conda install spyder=5.1.5
     ```
 
@@ -74,6 +81,9 @@ Contributors of all backgrounds and experiences are welcome.
     Setup a Reddit account, and create a script app by clicking the "Create app" button [here](https://old.reddit.com/prefs/apps/).
     More details on this can be found at: [https://github.com/reddit-archive/reddit/wiki/OAuth2](https://github.com/reddit-archive/reddit/wiki/OAuth2)
 
+- A Firebase project
+
+    Create here: [https://console.firebase.google.com/](https://console.firebase.google.com/)
 
 ### Setup
 
@@ -86,8 +96,15 @@ Contributors of all backgrounds and experiences are welcome.
     `conda activate brainfeed`
 
 3. Copy the `praw.ini_TEMPLATE_DO_NOT_ENTER_INFO_HERE` file to your config directory and rename it to `praw.ini` (see [https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html](https://praw.readthedocs.io/en/stable/getting_started/configuration/prawini.html)).
-Then, fill in your authentication information. Make sure to *not* have this publicly visible.
+Then, fill in your Reddit authentication information, following Reddit guidelines for the user_agent field. Make sure to *not* have this publicly visible.
 
+4. Initialize the Firebase SDK (create a service account and download the private key)
+
+    See [https://firebase.google.com/docs/admin/setup/#initialize-sdk](https://firebase.google.com/docs/admin/setup/#initialize-sdk)
+
+5. Add an environment variable called `GOOGLE_APPLICATION_CREDENTIALS` pointing to the location of this private key (which should *not* be publicly visible)
+
+    `export GOOGLE_APPLICATION_CREDENTIALS="/home/user/.config/service-account-file.json"`
 
 ### Helpful links
 
@@ -105,4 +122,8 @@ Then, fill in your authentication information. Make sure to *not* have this publ
 
 - Firebase documentation: [https://firebase.google.com/docs](https://firebase.google.com/docs)
 
-    - SDK for Firebase (Firebase Admin SDK): [https://firebase.google.com/docs/reference/admin](https://firebase.google.com/docs/reference/admin)
+    - Firebase Admin SDK reference: [https://firebase.google.com/docs/reference/admin](https://firebase.google.com/docs/reference/admin)
+
+    - Firebase Admin Python SDK: [https://github.com/firebase/firebase-admin-python](https://github.com/firebase/firebase-admin-python)
+
+    - Firestore quickstart guide: [https://firebase.google.com/docs/firestore/quickstart#python](https://firebase.google.com/docs/firestore/quickstart#python)

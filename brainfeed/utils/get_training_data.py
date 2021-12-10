@@ -3,8 +3,8 @@
 import os
 from habanero import Crossref
 
+cr = Crossref()
 f = cr.filter_details('works')
-
 
 BRAINFEED_EMAIL = os.environ['BRAINFEED_EMAIL']
 

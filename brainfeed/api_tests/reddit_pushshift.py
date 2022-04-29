@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# Use the Python Pushshift.io API wrapper to search Reddit posts and comments
-
 # In addition to the praw package, you also need to install psaw
 # pip install psaw
 
@@ -11,6 +9,7 @@ from psaw import PushshiftAPI
 import pandas as pd
 import datetime as dt
 
+# This function use the Python Pushshift.io API wrapper to search Reddit posts and comments
 def search_reddit(subreddit='science', n_posts=100, start_epoch=None, end_epoch=None, keyword=None):
     # # Initialize the Reddit API via PRAW
     # # make sure you have properly defined necessary information in praw.ini file (in the $HOME/.config directory)

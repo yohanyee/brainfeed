@@ -1,4 +1,4 @@
-#!usr/bin/python
+#!/usr/bin/env python
 
 # Use the Python Pushshift.io API wrapper to search Reddit posts and comments
 

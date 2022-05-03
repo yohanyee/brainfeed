@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
-# In addition to the praw package, you also need to install psaw
+# Use the Python Pushshift.io API wrapper to search Reddit posts and comments
+
+# Make sure the praw and psaw packages are installed
+# pip install praw
 # pip install psaw
 
 # Import packages
@@ -10,9 +13,22 @@ import pandas as pd
 import datetime as dt
 
 # This function use the Python Pushshift.io API wrapper to search Reddit posts and comments
-def search_reddit(subreddit='science', n_posts=100, start_epoch=None, end_epoch=None, keyword=None):
+def search_reddit(subreddit=None, n_posts=50, start_date=None, end_date=None, keyword=None):
+    """Search Reddit Posts
+
+    Args:
+        subreddit (str, optional): a string indicating the subreddit to be searched. Defaults to None (i.e., search from all subreddits).
+        n_posts (int, optional): an integer indicating the number of posts to be returned in the search results. Defaults to 50.
+        start_date (int, optional): an integer of UTC timestamp indicating the earliest post to be searched. Defaults to None.
+        end_date (int, optional): an integer of UTC timestamp indicating the latest post to be searched. Defaults to None.
+        keyword (str, optional): a string indicating the keyword to be searched (i.e., posts contain the keyword). Defaults to None.
+
+    Returns:
+        pd.DataFrame: a pandas dataframe storing the searched results
+    """
+    
     # # Initialize the Reddit API via PRAW
-    # # make sure you have properly defined necessary information in praw.ini file (in the $HOME/.config directory)
+    # # make sure you have properly defined necessary information in praw.ini file (in the ~/.config directory (Mac))
     # reddit = praw.Reddit("brainfeed_script")
     # api = PushshiftAPI(reddit)
 
@@ -30,8 +46,8 @@ def search_reddit(subreddit='science', n_posts=100, start_epoch=None, end_epoch=
         filter=attrb,
         subreddit=subreddit, # search in a given subreddit
         limit=n_posts, # the number of submissions returned 
-        after=start_epoch, # can only define the starting or ending date, or define both
-        before=end_epoch,
+        after=start_date, # can only define the starting or ending date, or define both
+        before=end_date,
         q=keyword # key term to search for
     )
     posts = list(gen)

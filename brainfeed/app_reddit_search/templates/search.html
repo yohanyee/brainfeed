@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action=""> <!-- "/results" -->
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Search Reddit Posts</legend>
+                <div class="form-group">
+                    {{ form.subreddit.label(class="form-control-label") }}
+                    {{ form.subreddit(class="form-control") }}
+                    <small id="subredditHelp" class="form-text text-muted">Enter a subreddit name where you want to search posts (e.g., science).</small>
+                </div>
+                <div class="form-group">
+                    {{ form.n_posts.label(class="form-control-label") }}
+                    {% if form.n_posts.errors %}
+                        {{ form.n_posts(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.n_posts.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.n_posts(class="form-control") }} <!-- , placeholder="Start Date" -->
+                    {% endif %}
+                    <small id="npostsHelp" class="form-text text-muted">Enter an integer between 0 and 20.</small>
+                </div>
+                <!-- <div class="form-row"> -->
+                <div class="form-group">
+                    {{ form.start_date.label(class="form-control-label") }}
+                    {% if form.start_date.errors %}
+                        {{ form.start_date(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.start_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.start_date(class="form-control") }} <!-- , placeholder="Start Date" -->
+                    {% endif %}
+                    <small id="startdateHelp" class="form-text text-muted">Enter a start date (yyyy-mm-dd) (e.g., 2020-01-01).</small>
+                </div>
+                <div class="form-group"> <!-- col-md-6 -->
+                    {{ form.end_date.label(class="form-control-label") }}
+                    {% if form.end_date.errors %}
+                        {{ form.end_date(class="form-control form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.end_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.end_date(class="form-control") }} <!-- , placeholder="Start Date" -->
+                    {% endif %}
+                    <small id="enddateHelp" class="form-text text-muted">Enter a end date (yyyy-mm-dd) (e.g., 2020-12-31).</small>
+                </div>
+                <!-- </div> -->
+                <div class="form-group">
+                    {{ form.keyword.label(class="form-control-label") }}
+                    {{ form.keyword(class="form-control") }}
+                    <small id="keywordHelp" class="form-text text-muted">Enter a keyword you want to search for (e.g., brain).</small>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

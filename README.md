@@ -42,6 +42,41 @@ Future ideas:
 
 
 
+## Current progress
+- Web Application (not deployed yet) 
+
+    This web application allows users to search reddit posts in all or a specific subreddit, search the most recent posts or posts in a given time windown, or search posts with specific keywords.
+
+    ```
+    python run_app_reddit_search.py
+    ```
+
+- Reddit Posts Search & Store 
+    
+    Store a user's search results into a PostgreSQL database.
+
+    For demonstraction, run the following codes:
+
+    ```bash
+    python demo_reddit_search.py
+    ```
+     
+- Reddit Post Recommender
+
+    For a given reddit post, this recommender recommends the top 5 most similar posts based on the content of the post title
+
+    See the Jupyter Notebook ```reddit_recommender.ipynb```
+
+- Reddit Post Topic (Flair Tag) Classification
+
+    This classification models predicts the topic (flair tag) of reddit posts based on the contnet of the post title.
+
+    For simplicity and demonstration, the present model performs a binary classification on posts with Biology and Environment flair tags. 
+    
+    See the Jupyter Notebook ```reddit_classification.ipynb```
+
+
+
 ## Contributing
 
 Contributors of all backgrounds and experiences are welcome.

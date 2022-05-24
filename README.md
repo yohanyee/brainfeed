@@ -47,6 +47,8 @@ Future ideas:
 
     This web application allows users to search reddit posts in all or a specific subreddit, search the most recent posts or posts in a given time windown, or search posts with specific keywords.
 
+    The app currently works offline (locally) but will be deployed soon.
+
     ```
     python run_app_reddit_search.py
     ```
